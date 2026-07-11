@@ -1,0 +1,80 @@
+{
+  "site": {
+    "name": "CS://CODEX",
+    "tagline": "反恐精英知识库"
+  },
+  "nav": {
+    "home": "首页",
+    "history": "发展历史",
+    "maps": "地图",
+    "weapons": "枪械",
+    "tournaments": "赛事",
+    "players": "职业选手",
+    "kz": "KZ 跳跃",
+    "modes": "玩法模式",
+    "menu": "菜单",
+    "close": "关闭"
+  },
+  "common": {
+    "enter": "进入",
+    "explore": "探索",
+    "viewAll": "查看全部",
+    "readMore": "了解更多",
+    "details": "详情",
+    "back": "返回",
+    "comingSoon": "敬请期待",
+    "watchOnYoutube": "在 YouTube 观看",
+    "play": "播放",
+    "language": "语言",
+    "stats": "数据",
+    "loading": "加载中",
+    "notFound": "未找到",
+    "entries": "条目"
+  },
+  "home": {
+    "heroKicker": "// 反恐精英知识库",
+    "heroTitle": "反恐精英百科全书",
+    "heroSubtitle": "一部赛博朋克风格的反恐精英百科 —— 历史、地图、枪械、赛事、选手、KZ 与玩法模式,从 1.6 到 CS2。",
+    "heroPrimary": "浏览数据库",
+    "heroSecondary": "阅读发展史",
+    "boardsTitle": "数据库板块",
+    "boardsSubtitle": "七大模块,覆盖反恐精英的整个宇宙。",
+    "statsTitle": "系统状态",
+    "featuredTitle": "信号流"
+  },
+  "boards": {
+    "history": {
+      "title": "发展历史",
+      "tagline": "从 Beta 到 CS2 —— 二十余年的反恐精英编年史。"
+    },
+    "maps": {
+      "title": "地图",
+      "tagline": "标志性的战场、炸弹点与经典点位。"
+    },
+    "weapons": {
+      "title": "枪械",
+      "tagline": "每一把枪的数据与横向对比。"
+    },
+    "tournaments": {
+      "title": "赛事",
+      "tagline": "Major 与定义电竞的高光时刻。"
+    },
+    "players": {
+      "title": "职业选手",
+      "tagline": "准星背后的传奇选手。"
+    },
+    "kz": {
+      "title": "KZ 跳跃",
+      "tagline": "移动的艺术 —— 攀爬、连跳、急停。"
+    },
+    "modes": {
+      "title": "玩法模式",
+      "tagline": "竞技、休闲与社区玩法模式。"
+    }
+  },
+  "footer": {
+    "disclaimer": "粉丝作品,仅用于个人作品展示。Counter-Strike 是 Valve Corporation 的商标,本站与 Valve 无关,亦未获其授权。",
+    "builtWith": "使用 Next.js · Tailwind CSS · Supabase 构建",
+    "sections": "板块"
+  }
+}

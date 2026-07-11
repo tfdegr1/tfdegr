@@ -1,0 +1,80 @@
+{
+  "site": {
+    "name": "CS://CODEX",
+    "tagline": "Counter-Strike Knowledge Base"
+  },
+  "nav": {
+    "home": "Home",
+    "history": "History",
+    "maps": "Maps",
+    "weapons": "Weapons",
+    "tournaments": "Tournaments",
+    "players": "Players",
+    "kz": "KZ",
+    "modes": "Modes",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "common": {
+    "enter": "Enter",
+    "explore": "Explore",
+    "viewAll": "View all",
+    "readMore": "Read more",
+    "details": "Details",
+    "back": "Back",
+    "comingSoon": "Coming soon",
+    "watchOnYoutube": "Watch on YouTube",
+    "play": "Play",
+    "language": "Language",
+    "stats": "Stats",
+    "loading": "Loading",
+    "notFound": "Not found",
+    "entries": "entries"
+  },
+  "home": {
+    "heroKicker": "// COUNTER-STRIKE KNOWLEDGE BASE",
+    "heroTitle": "THE COUNTER-STRIKE CODEX",
+    "heroSubtitle": "A cyberpunk encyclopedia of Counter-Strike — history, maps, weapons, tournaments, players, KZ and game modes, from 1.6 to CS2.",
+    "heroPrimary": "Browse databanks",
+    "heroSecondary": "Read the history",
+    "boardsTitle": "Databanks",
+    "boardsSubtitle": "Seven modules covering the whole universe of Counter-Strike.",
+    "statsTitle": "System Status",
+    "featuredTitle": "Signal Feed"
+  },
+  "boards": {
+    "history": {
+      "title": "History",
+      "tagline": "From beta builds to CS2 — two decades of Counter-Strike."
+    },
+    "maps": {
+      "title": "Maps",
+      "tagline": "Iconic battlegrounds, bombsites and callouts."
+    },
+    "weapons": {
+      "title": "Weapons",
+      "tagline": "Every gun, statted and compared."
+    },
+    "tournaments": {
+      "title": "Tournaments",
+      "tagline": "Majors and the moments that defined esports."
+    },
+    "players": {
+      "title": "Players",
+      "tagline": "The legends behind the crosshairs."
+    },
+    "kz": {
+      "title": "KZ",
+      "tagline": "The art of movement — climb, bhop, strafe."
+    },
+    "modes": {
+      "title": "Modes",
+      "tagline": "Competitive, casual and community game modes."
+    }
+  },
+  "footer": {
+    "disclaimer": "Fan-made project for portfolio purposes. Counter-Strike is a trademark of Valve Corporation. This site is not affiliated with or endorsed by Valve.",
+    "builtWith": "Built with Next.js · Tailwind CSS · Supabase",
+    "sections": "Databanks"
+  }
+}

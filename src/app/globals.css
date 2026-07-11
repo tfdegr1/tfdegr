@@ -1,26 +1,275 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------ */
+/*  Cyberpunk design tokens (Tailwind v4 @theme -> utilities + vars)   */
+/* ------------------------------------------------------------------ */
+@theme {
+  --color-bg: #05060a;
+  --color-bg-elev: #0a0f1a;
+  --color-panel: #0d1424;
+  --color-panel-2: #111a2e;
+  --color-edge: #1c2947;
+  --color-edge-bright: #2b3d63;
+  --color-ink: #e2e8f5;
+  --color-muted: #8b9bb8;
+
+  --color-neon-cyan: #00e5ff;
+  --color-neon-magenta: #ff2d95;
+  --color-neon-violet: #b14bff;
+  --color-neon-lime: #adff2f;
+  --color-neon-amber: #ffb347;
+
+  --font-display: ui-monospace, "Cascadia Code", "Segoe UI Mono", "SF Mono",
+    Consolas, "Liberation Mono", monospace;
+  --font-mono: ui-monospace, "Cascadia Code", Consolas, "Liberation Mono",
+    monospace;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC",
+    "Microsoft YaHei", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
+
+  --radius: 2px;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --accent: #00e5ff;
+  color-scheme: dark;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  border-color: var(--color-edge);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-neon-cyan);
+  color: #05060a;
+}
+
+/* Neon scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #05060a;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #123, #1c2947);
+  border: 1px solid var(--color-edge-bright);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neon-cyan);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Background field: grid + vignette                                  */
+/* ------------------------------------------------------------------ */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.grid-bg-fade {
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 80%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 80%);
+}
+
+/* Scanlines overlay (apply to a positioned element) */
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Neon helpers                                                       */
+/* ------------------------------------------------------------------ */
+.neon-text {
+  text-shadow:
+    0 0 4px color-mix(in srgb, var(--accent) 70%, transparent),
+    0 0 18px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.neon-box {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent),
+    0 0 20px -4px color-mix(in srgb, var(--accent) 60%, transparent),
+    inset 0 0 30px -20px color-mix(in srgb, var(--accent) 80%, transparent);
+}
+.neon-ring {
+  box-shadow: 0 0 0 1px var(--accent), 0 0 16px -2px var(--accent);
+}
+.text-accent {
+  color: var(--accent);
+}
+.bg-accent {
+  background-color: var(--accent);
+}
+.border-accent {
+  border-color: var(--accent);
+}
+.bg-accent-soft {
+  background-color: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.bg-accent-softer {
+  background-color: color-mix(in srgb, var(--accent) 15%, transparent);
+}
+.border-accent-soft {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.hover\:bg-accent-softer:hover {
+  background-color: color-mix(in srgb, var(--accent) 15%, transparent);
+}
+.hover\:text-accent:hover {
+  color: var(--accent);
+}
+.hover\:border-accent:hover {
+  border-color: var(--accent);
+}
+.hover\:neon-box:hover {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent),
+    0 0 20px -4px color-mix(in srgb, var(--accent) 60%, transparent),
+    inset 0 0 30px -20px color-mix(in srgb, var(--accent) 80%, transparent);
+}
+
+/* Angled HUD frame: cut top-right + bottom-left corners */
+.hud-corners {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 14px) 0,
+    100% 14px,
+    100% 100%,
+    14px 100%,
+    0 calc(100% - 14px)
+  );
+}
+
+.text-gradient {
+  background: linear-gradient(
+    100deg,
+    var(--color-neon-cyan),
+    var(--color-neon-violet) 55%,
+    var(--color-neon-magenta)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Dotted kicker label */
+.kicker {
+  font-family: var(--font-mono);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Glitch title (uses data-text attribute)                            */
+/* ------------------------------------------------------------------ */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  clip-path: inset(0);
+}
+.glitch::before {
+  color: var(--color-neon-magenta);
+  transform: translate(-2px, 0);
+  animation: glitch-a 3.4s infinite steps(2, end);
+  opacity: 0.75;
+}
+.glitch::after {
+  color: var(--color-neon-cyan);
+  transform: translate(2px, 0);
+  animation: glitch-b 2.8s infinite steps(2, end);
+  opacity: 0.75;
+}
+.group:hover .glitch::before,
+.glitch:hover::before {
+  animation-duration: 0.6s;
+}
+.group:hover .glitch::after,
+.glitch:hover::after {
+  animation-duration: 0.5s;
+}
+
+@keyframes glitch-a {
+  0%, 92%, 100% { clip-path: inset(0 0 100% 0); }
+  93% { clip-path: inset(10% 0 60% 0); transform: translate(-3px, -1px); }
+  96% { clip-path: inset(50% 0 20% 0); transform: translate(-2px, 1px); }
+}
+@keyframes glitch-b {
+  0%, 90%, 100% { clip-path: inset(100% 0 0 0); }
+  92% { clip-path: inset(60% 0 15% 0); transform: translate(3px, 1px); }
+  97% { clip-path: inset(20% 0 55% 0); transform: translate(2px, -1px); }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Ambient animations                                                 */
+/* ------------------------------------------------------------------ */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.82; }
+  53% { opacity: 0.55; }
+  55% { opacity: 0.9; }
+}
+.flicker { animation: flicker 5s infinite; }
+
+@keyframes scan-move {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+.scanbeam {
+  animation: scan-move 9s linear infinite;
+}
+
+@keyframes pulse-accent {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.pulse-accent { animation: pulse-accent 2.4s ease-in-out infinite; }
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.float-y { animation: float-y 6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
