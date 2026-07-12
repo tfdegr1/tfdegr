@@ -61,7 +61,12 @@ export function MediaPlaceholder({
           src={media.image}
           alt={label}
           loading="lazy"
-          className="absolute inset-0 h-full w-full object-contain p-3 drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]"
+          className={cn(
+            "absolute inset-0 h-full w-full",
+            media.imageFit === "cover"
+              ? "object-cover"
+              : "object-contain p-3 drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]",
+          )}
         />
       ) : media.art ? (
         <MediaArt

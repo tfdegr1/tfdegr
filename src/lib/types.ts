@@ -54,6 +54,8 @@ export interface MediaPlaceholder {
   variant?: string;
   /** Real image URL/path; when set, rendered instead of the generated art. */
   image?: string;
+  /** How the image fills the frame. Default "contain" (renders/logos); "cover" for photos. */
+  imageFit?: "cover" | "contain";
 }
 
 /** A referenced YouTube video. `videoId` may be "" → component degrades to a placeholder. */

@@ -37,6 +37,7 @@ const ph = (
   aspect: "16/9",
   accent: "magenta",
   icon,
+  image: `/tournaments/${slug}.png`,
 });
 
 const seed: Tournament[] = [

@@ -30,6 +30,7 @@ const ph = (slug: string, label: LocalizedText): MediaPlaceholder => ({
   aspect: "16/9",
   accent: "cyan",
   icon: "Map",
+  image: `/maps/${slug}.png`,
 });
 
 const seed: CSMap[] = [

@@ -24,6 +24,8 @@ const ph = (slug: string, label: string): MediaPlaceholder => ({
   aspect: "3/4",
   accent: "lime",
   icon: "User",
+  image: `/players/${slug}.png`,
+  imageFit: "cover",
 });
 
 const seed: Player[] = [
