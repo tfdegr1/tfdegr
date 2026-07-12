@@ -24,9 +24,8 @@ export function SiteHeader() {
           href="/"
           className="group flex items-center font-display text-lg font-bold tracking-tight text-ink"
         >
-          <span className="text-neon-cyan neon-text">CS</span>
-          <span className="text-muted">://</span>
-          <span className="transition-colors group-hover:text-neon-cyan">CODEX</span>
+          <span className="text-neon-cyan neon-text">TF</span>
+          <span className="transition-colors group-hover:text-neon-cyan">DEGR</span>
         </Link>
 
         <nav className="hidden items-center gap-0.5 lg:flex">

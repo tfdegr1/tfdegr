@@ -362,9 +362,15 @@ const seed: Weapon[] = [
   },
 ];
 
+const withArt = (w: Weapon): Weapon => ({
+  ...w,
+  media: { ...w.media, art: "weapon", variant: w.category },
+});
+
 export async function getWeapons(): Promise<Weapon[]> {
-  return seed;
+  return seed.map(withArt);
 }
 export async function getWeaponBySlug(slug: string): Promise<Weapon | null> {
-  return seed.find((w) => w.slug === slug) ?? null;
+  const w = seed.find((w) => w.slug === slug);
+  return w ? withArt(w) : null;
 }

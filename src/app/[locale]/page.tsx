@@ -8,7 +8,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
 
 const BOOT_LOG = [
-  "> initializing cs://codex",
+  "> initializing tfdegr",
   "> mounting databanks .......... OK",
   "> loading eras: beta→1.6→source→csgo→cs2",
   "> render mode: CYBERPUNK",
@@ -68,7 +68,7 @@ export default async function HomePage({
               <span className="h-2.5 w-2.5 rounded-full bg-neon-magenta" />
               <span className="h-2.5 w-2.5 rounded-full bg-neon-amber" />
               <span className="h-2.5 w-2.5 rounded-full bg-neon-lime" />
-              <span className="ml-2 text-muted">codex@valve ~ %</span>
+              <span className="ml-2 text-muted">tfdegr@valve ~ %</span>
             </div>
             <div className="space-y-1.5">
               {BOOT_LOG.map((line, i) => (

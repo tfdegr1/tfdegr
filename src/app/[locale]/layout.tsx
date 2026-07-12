@@ -15,8 +15,8 @@ export function generateStaticParams() {
 
 export const metadata: Metadata = {
   title: {
-    default: "CS://CODEX — Counter-Strike Encyclopedia",
-    template: "%s · CS://CODEX",
+    default: "TFDEGR — Counter-Strike Encyclopedia",
+    template: "%s · TFDEGR",
   },
   description:
     "A cyberpunk encyclopedia of Counter-Strike: history, maps, weapons, tournaments, players, KZ and game modes — from 1.6 to CS2.",

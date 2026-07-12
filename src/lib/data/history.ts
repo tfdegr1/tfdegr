@@ -313,11 +313,15 @@ const seed: HistoryEvent[] = [
 
 /** All events, sorted chronologically (year, then month when present). */
 export async function getHistoryEvents(): Promise<HistoryEvent[]> {
-  return [...seed].sort(
-    (a, b) =>
-      a.year - b.year ||
-      (a.date ?? `${a.year}`).localeCompare(b.date ?? `${b.year}`),
-  );
+  return [...seed]
+    .sort(
+      (a, b) =>
+        a.year - b.year ||
+        (a.date ?? `${a.year}`).localeCompare(b.date ?? `${b.year}`),
+    )
+    .map((e) =>
+      e.media ? { ...e, media: { ...e.media, art: "history" as const } } : e,
+    );
 }
 
 export async function getEras(): Promise<

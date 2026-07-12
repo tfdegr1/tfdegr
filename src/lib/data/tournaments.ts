@@ -389,11 +389,17 @@ const seed: Tournament[] = [
   },
 ];
 
+const withArt = (t: Tournament): Tournament => ({
+  ...t,
+  media: { ...t.media, art: "tournament" },
+});
+
 export async function getTournaments(): Promise<Tournament[]> {
-  return [...seed].sort((a, b) => b.year - a.year);
+  return [...seed].sort((a, b) => b.year - a.year).map(withArt);
 }
 export async function getTournamentBySlug(
   slug: string,
 ): Promise<Tournament | null> {
-  return seed.find((t) => t.slug === slug) ?? null;
+  const t = seed.find((t) => t.slug === slug);
+  return t ? withArt(t) : null;
 }

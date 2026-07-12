@@ -30,7 +30,7 @@ export const BOARDS: BoardDef[] = [
 ];
 
 export const SITE = {
-  name: "CS://CODEX",
+  name: "TFDEGR",
   repo: "https://github.com/",
   year: 2026,
 };

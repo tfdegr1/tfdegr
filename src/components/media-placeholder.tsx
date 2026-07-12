@@ -6,6 +6,7 @@ import {
 } from "@/lib/types";
 import { accentVar, cn } from "@/lib/utils";
 import { getIcon } from "@/lib/icons";
+import { MediaArt } from "./media-art";
 
 const aspectClass: Record<string, string> = {
   "16/9": "aspect-video",
@@ -21,7 +22,8 @@ function hash(s: string): number {
   return h;
 }
 
-/** Programmatic, copyright-free placeholder image with a cyberpunk look. */
+/** Programmatic, copyright-free media tile with a cyberpunk look.
+ *  Renders subject-specific vector art when `media.art` is set. */
 export function MediaPlaceholder({
   media,
   locale,
@@ -37,13 +39,13 @@ export function MediaPlaceholder({
   const rot = h % 360;
   const px = 15 + (h % 55);
   const py = 20 + ((h >> 3) % 50);
-  const Icon = getIcon(media.icon);
   const label = localize(media.label, locale);
+  const Icon = getIcon(media.icon);
 
   return (
     <div
       style={accentVar(hex, {
-        backgroundImage: `linear-gradient(${rot}deg, ${hex}22, transparent 60%), radial-gradient(circle at ${px}% ${py}%, ${hex}33, transparent 55%)`,
+        backgroundImage: `linear-gradient(${rot}deg, ${hex}1e, transparent 60%), radial-gradient(circle at ${px}% ${py}%, ${hex}2b, transparent 55%)`,
       })}
       className={cn(
         "hud-corners scanlines relative overflow-hidden border border-edge bg-panel",
@@ -51,19 +53,35 @@ export function MediaPlaceholder({
         className,
       )}
     >
-      <div className="grid-bg absolute inset-0 opacity-40" />
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center">
-        <Icon className="text-accent neon-text h-10 w-10" strokeWidth={1.25} />
-        <span className="font-display text-lg font-semibold tracking-wide text-ink">
-          {label}
-        </span>
-      </div>
+      <div className="grid-bg absolute inset-0 opacity-30" />
+
+      {media.art ? (
+        <MediaArt
+          art={media.art}
+          seed={media.seed}
+          accent={accent}
+          label={label}
+          variant={media.variant}
+          className="absolute inset-0 h-full w-full"
+        />
+      ) : (
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center">
+          <Icon className="text-accent neon-text h-10 w-10" strokeWidth={1.25} />
+          <span className="font-display text-lg font-semibold tracking-wide text-ink">
+            {label}
+          </span>
+        </div>
+      )}
+
       <span className="absolute left-2 top-2 font-mono text-[0.6rem] uppercase tracking-widest text-muted">
         // IMG
       </span>
-      <span className="text-accent pulse-accent absolute bottom-2 right-2 font-mono text-[0.6rem] uppercase tracking-widest">
-        NO SIGNAL
-      </span>
+
+      {media.art && (
+        <span className="absolute bottom-2 left-2 max-w-[88%] truncate border border-edge bg-bg/70 px-1.5 py-0.5 font-mono text-[0.64rem] uppercase tracking-widest text-ink backdrop-blur-sm">
+          {label}
+        </span>
+      )}
     </div>
   );
 }

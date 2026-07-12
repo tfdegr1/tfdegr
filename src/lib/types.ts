@@ -28,6 +28,16 @@ export const ACCENT_HEX: Record<AccentColor, string> = {
 
 export type AspectRatio = "16/9" | "4/3" | "1/1" | "3/4" | "21/9";
 
+/** Subject-specific SVG artwork kinds (see components/media-art.tsx). */
+export type MediaArtKind =
+  | "weapon"
+  | "map"
+  | "player"
+  | "tournament"
+  | "kz"
+  | "mode"
+  | "history";
+
 /** A programmatic placeholder image (zero copyright risk). */
 export interface MediaPlaceholder {
   kind: "placeholder";
@@ -38,6 +48,10 @@ export interface MediaPlaceholder {
   accent?: AccentColor;
   /** Optional lucide icon name rendered on the placeholder. */
   icon?: string;
+  /** Subject-specific vector artwork to draw instead of a plain icon. */
+  art?: MediaArtKind;
+  /** Optional hint for the art renderer (e.g. weapon category). */
+  variant?: string;
 }
 
 /** A referenced YouTube video. `videoId` may be "" → component degrades to a placeholder. */

@@ -172,12 +172,18 @@ const seed: KZMap[] = [
   },
 ];
 
+const withArt = (m: KZMap): KZMap => ({
+  ...m,
+  media: { ...m.media, art: "kz" },
+});
+
 export async function getKZMaps(): Promise<KZMap[]> {
-  return seed;
+  return seed.map(withArt);
 }
 
 export async function getKZMapBySlug(slug: string): Promise<KZMap | null> {
-  return seed.find((m) => m.slug === slug) ?? null;
+  const m = seed.find((m) => m.slug === slug);
+  return m ? withArt(m) : null;
 }
 
 /** Overview of the KZ discipline, rendered at the top of the board page. */

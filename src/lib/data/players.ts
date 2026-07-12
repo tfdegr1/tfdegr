@@ -262,10 +262,16 @@ const seed: Player[] = [
   },
 ];
 
+const withArt = (p: Player): Player => ({
+  ...p,
+  media: { ...p.media, art: "player" },
+});
+
 export async function getPlayers(): Promise<Player[]> {
-  return seed;
+  return seed.map(withArt);
 }
 
 export async function getPlayerBySlug(slug: string): Promise<Player | null> {
-  return seed.find((p) => p.slug === slug) ?? null;
+  const p = seed.find((p) => p.slug === slug);
+  return p ? withArt(p) : null;
 }

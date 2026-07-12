@@ -10,8 +10,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 md:grid-cols-[2fr_3fr]">
         <div>
           <div className="font-display text-lg font-bold text-ink">
-            <span className="text-neon-cyan">CS</span>
-            <span className="text-muted">://</span>CODEX
+            <span className="text-neon-cyan">TF</span>DEGR
           </div>
           <p className="mt-3 max-w-sm text-xs leading-relaxed text-muted">
             {t("footer.disclaimer")}

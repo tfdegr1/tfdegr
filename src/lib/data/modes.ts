@@ -208,9 +208,15 @@ const seed: GameMode[] = [
   },
 ];
 
+const withArt = (m: GameMode): GameMode => ({
+  ...m,
+  media: { ...m.media, art: "mode" },
+});
+
 export async function getModes(): Promise<GameMode[]> {
-  return seed;
+  return seed.map(withArt);
 }
 export async function getModeBySlug(slug: string): Promise<GameMode | null> {
-  return seed.find((m) => m.slug === slug) ?? null;
+  const m = seed.find((m) => m.slug === slug);
+  return m ? withArt(m) : null;
 }

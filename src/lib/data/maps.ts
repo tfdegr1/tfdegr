@@ -498,9 +498,15 @@ const seed: CSMap[] = [
   },
 ];
 
+const withArt = (m: CSMap): CSMap => ({
+  ...m,
+  media: { ...m.media, art: "map" },
+});
+
 export async function getMaps(): Promise<CSMap[]> {
-  return seed;
+  return seed.map(withArt);
 }
 export async function getMapBySlug(slug: string): Promise<CSMap | null> {
-  return seed.find((m) => m.slug === slug) ?? null;
+  const m = seed.find((m) => m.slug === slug);
+  return m ? withArt(m) : null;
 }
