@@ -9,6 +9,10 @@ import { SiteFooter } from "@/components/site-footer";
 import { BackgroundFX } from "@/components/background-fx";
 import "../globals.css";
 
+// ISR: pages are prerendered, then re-fetched from the data source (Supabase)
+// at most once per minute — so content edits go live without a redeploy.
+export const revalidate = 60;
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
