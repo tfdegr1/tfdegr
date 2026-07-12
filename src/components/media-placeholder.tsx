@@ -55,7 +55,15 @@ export function MediaPlaceholder({
     >
       <div className="grid-bg absolute inset-0 opacity-30" />
 
-      {media.art ? (
+      {media.image ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={media.image}
+          alt={label}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-contain p-3 drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]"
+        />
+      ) : media.art ? (
         <MediaArt
           art={media.art}
           seed={media.seed}
@@ -77,7 +85,7 @@ export function MediaPlaceholder({
         // IMG
       </span>
 
-      {media.art && (
+      {(media.art || media.image) && (
         <span className="absolute bottom-2 left-2 max-w-[88%] truncate border border-edge bg-bg/70 px-1.5 py-0.5 font-mono text-[0.64rem] uppercase tracking-widest text-ink backdrop-blur-sm">
           {label}
         </span>

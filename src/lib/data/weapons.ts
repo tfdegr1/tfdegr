@@ -73,6 +73,7 @@ const ph = (slug: string, name: string, icon: string): MediaPlaceholder => ({
   aspect: "16/9",
   accent: "amber",
   icon,
+  image: `/weapons/${slug}.png`,
 });
 
 const seed: Weapon[] = [

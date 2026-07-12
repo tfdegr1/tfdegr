@@ -52,6 +52,8 @@ export interface MediaPlaceholder {
   art?: MediaArtKind;
   /** Optional hint for the art renderer (e.g. weapon category). */
   variant?: string;
+  /** Real image URL/path; when set, rendered instead of the generated art. */
+  image?: string;
 }
 
 /** A referenced YouTube video. `videoId` may be "" → component degrades to a placeholder. */
