@@ -1,4 +1,5 @@
 import type { LocalizedText, MediaPlaceholder, YouTubeRef } from "@/lib/types";
+import { DATA_SOURCE, supaAll, supaOne } from "../supabase";
 
 export interface KZMap {
   slug: string;
@@ -206,10 +207,12 @@ const withArt = (m: KZMap): KZMap => ({
 });
 
 export async function getKZMaps(): Promise<KZMap[]> {
+  if (DATA_SOURCE === "supabase") return supaAll<KZMap>("kz_maps");
   return seed.map(withArt);
 }
 
 export async function getKZMapBySlug(slug: string): Promise<KZMap | null> {
+  if (DATA_SOURCE === "supabase") return supaOne<KZMap>("kz_maps", "slug", slug);
   const m = seed.find((m) => m.slug === slug);
   return m ? withArt(m) : null;
 }

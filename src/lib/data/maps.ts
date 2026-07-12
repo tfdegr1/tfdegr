@@ -1,4 +1,5 @@
 import type { LocalizedText, MediaPlaceholder, YouTubeRef } from "@/lib/types";
+import { DATA_SOURCE, supaAll, supaOne } from "../supabase";
 
 export interface CSMap {
   slug: string;
@@ -540,9 +541,11 @@ const withArt = (m: CSMap): CSMap => ({
 });
 
 export async function getMaps(): Promise<CSMap[]> {
+  if (DATA_SOURCE === "supabase") return supaAll<CSMap>("maps");
   return seed.map(withArt);
 }
 export async function getMapBySlug(slug: string): Promise<CSMap | null> {
+  if (DATA_SOURCE === "supabase") return supaOne<CSMap>("maps", "slug", slug);
   const m = seed.find((m) => m.slug === slug);
   return m ? withArt(m) : null;
 }

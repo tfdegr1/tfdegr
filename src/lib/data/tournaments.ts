@@ -1,4 +1,5 @@
 import type { LocalizedText, MediaPlaceholder, YouTubeRef } from "@/lib/types";
+import { DATA_SOURCE, supaAll, supaOne } from "../supabase";
 
 export interface Tournament {
   slug: string;
@@ -512,11 +513,15 @@ const withArt = (t: Tournament): Tournament => ({
 });
 
 export async function getTournaments(): Promise<Tournament[]> {
+  if (DATA_SOURCE === "supabase")
+    return supaAll<Tournament>("tournaments", { column: "year", ascending: false });
   return [...seed].sort((a, b) => b.year - a.year).map(withArt);
 }
 export async function getTournamentBySlug(
   slug: string,
 ): Promise<Tournament | null> {
+  if (DATA_SOURCE === "supabase")
+    return supaOne<Tournament>("tournaments", "slug", slug);
   const t = seed.find((t) => t.slug === slug);
   return t ? withArt(t) : null;
 }

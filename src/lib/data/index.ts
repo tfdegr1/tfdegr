@@ -10,4 +10,4 @@ export * from "./players";
 export * from "./kz";
 export * from "./modes";
 
-export const DATA_SOURCE = process.env.NEXT_PUBLIC_DATA_SOURCE ?? "local";
+export { DATA_SOURCE } from "../supabase";

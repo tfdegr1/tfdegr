@@ -1,4 +1,5 @@
 import type { LocalizedText, MediaPlaceholder } from "@/lib/types";
+import { DATA_SOURCE, supaAll, supaOne } from "../supabase";
 
 export interface Player {
   slug: string;
@@ -268,10 +269,12 @@ const withArt = (p: Player): Player => ({
 });
 
 export async function getPlayers(): Promise<Player[]> {
+  if (DATA_SOURCE === "supabase") return supaAll<Player>("players");
   return seed.map(withArt);
 }
 
 export async function getPlayerBySlug(slug: string): Promise<Player | null> {
+  if (DATA_SOURCE === "supabase") return supaOne<Player>("players", "slug", slug);
   const p = seed.find((p) => p.slug === slug);
   return p ? withArt(p) : null;
 }

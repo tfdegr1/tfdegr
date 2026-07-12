@@ -1,4 +1,5 @@
 import type { LocalizedText, MediaPlaceholder } from "@/lib/types";
+import { DATA_SOURCE, supaAll, supaOne } from "../supabase";
 
 export interface Weapon {
   slug: string;
@@ -368,9 +369,11 @@ const withArt = (w: Weapon): Weapon => ({
 });
 
 export async function getWeapons(): Promise<Weapon[]> {
+  if (DATA_SOURCE === "supabase") return supaAll<Weapon>("weapons");
   return seed.map(withArt);
 }
 export async function getWeaponBySlug(slug: string): Promise<Weapon | null> {
+  if (DATA_SOURCE === "supabase") return supaOne<Weapon>("weapons", "slug", slug);
   const w = seed.find((w) => w.slug === slug);
   return w ? withArt(w) : null;
 }

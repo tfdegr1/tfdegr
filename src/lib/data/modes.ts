@@ -1,4 +1,5 @@
 import type { LocalizedText, MediaPlaceholder } from "@/lib/types";
+import { DATA_SOURCE, supaAll, supaOne } from "../supabase";
 
 export interface GameMode {
   slug: string;
@@ -214,9 +215,11 @@ const withArt = (m: GameMode): GameMode => ({
 });
 
 export async function getModes(): Promise<GameMode[]> {
+  if (DATA_SOURCE === "supabase") return supaAll<GameMode>("game_modes");
   return seed.map(withArt);
 }
 export async function getModeBySlug(slug: string): Promise<GameMode | null> {
+  if (DATA_SOURCE === "supabase") return supaOne<GameMode>("game_modes", "slug", slug);
   const m = seed.find((m) => m.slug === slug);
   return m ? withArt(m) : null;
 }

@@ -1,4 +1,5 @@
 import type { LocalizedText, MediaPlaceholder } from "@/lib/types";
+import { DATA_SOURCE, supaAll } from "../supabase";
 
 export type Era = "beta" | "cs1.6" | "source" | "csgo" | "cs2";
 
@@ -313,6 +314,14 @@ const seed: HistoryEvent[] = [
 
 /** All events, sorted chronologically (year, then month when present). */
 export async function getHistoryEvents(): Promise<HistoryEvent[]> {
+  if (DATA_SOURCE === "supabase") {
+    const rows = await supaAll<HistoryEvent>("history_events");
+    return rows.sort(
+      (a, b) =>
+        a.year - b.year ||
+        (a.date ?? `${a.year}`).localeCompare(b.date ?? `${b.year}`),
+    );
+  }
   return [...seed]
     .sort(
       (a, b) =>
