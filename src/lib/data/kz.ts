@@ -60,7 +60,14 @@ const seed: KZMap[] = [
       zh: "色调温暖的方块跳跃图,新人入门首选。落点宽裕、间距友好、难度曲线平滑,在不惩罚失误的前提下教会你预转向、滞空控制与存点习惯。",
     },
     media: ph("bkz_apricity_v3", { en: "apricity_v3", zh: "apricity_v3" }),
-    recordVideo: wr("bkz_apricity_v3"),
+    recordVideo: {
+      kind: "youtube",
+      videoId: "BShOT2HPfm4",
+      title: {
+        en: "bkz_apricity_v3 — KZT record run by smieszneznaczki (2:49.42)",
+        zh: "bkz_apricity_v3 — smieszneznaczki 的 KZT 纪录速通（2:49.42）",
+      },
+    },
   },
   {
     slug: "bkz_goldbhop",
@@ -72,7 +79,14 @@ const seed: KZMap[] = [
       zh: "金光闪闪的连跳经典:成串金砖更看重干净、有节奏的起跳衔接,而非纯粹的变向能力。Vanilla 玩家的最爱试炼场,完美的起跳时机就是一切。",
     },
     media: ph("bkz_goldbhop", { en: "goldbhop", zh: "goldbhop" }),
-    recordVideo: wr("bkz_goldbhop"),
+    recordVideo: {
+      kind: "youtube",
+      videoId: "BXgzl6XuEIA",
+      title: {
+        en: "bkz_goldbhop — world record run by topoviygus (1:25.32)",
+        zh: "bkz_goldbhop — topoviygus 的世界纪录速通（1:25.32）",
+      },
+    },
   },
   {
     slug: "kz_summer",
@@ -132,7 +146,14 @@ const seed: KZMap[] = [
       zh: "kz_synergy 的加长版:霓虹科技走廊将连跳路段与垂直梯塔串联起来。极重流畅度的设计——错失一跳,就可能让整段积累的动量土崩瓦解。",
     },
     media: ph("kz_synergy_x", { en: "synergy_x", zh: "synergy_x" }),
-    recordVideo: wr("kz_synergy_x"),
+    recordVideo: {
+      kind: "youtube",
+      videoId: "MsYzXVMBCaE",
+      title: {
+        en: "kz_synergy_x — KZT record run by zza (3:38.89)",
+        zh: "kz_synergy_x — zza 的 KZT 纪录速通（3:38.89）",
+      },
+    },
   },
   {
     slug: "xc_pot66_fix",
@@ -168,7 +189,14 @@ const seed: KZMap[] = [
       zh: "kz_lionhard 的强化版,真正的 Tier 7 终局考验:全程帧级精度的跳跃首尾相连。能完赛已是成就——在这里保持纪录,即为传奇。",
     },
     media: ph("kz_lionharder", { en: "lionharder", zh: "lionharder" }),
-    recordVideo: wr("kz_lionharder"),
+    recordVideo: {
+      kind: "youtube",
+      videoId: "1R-p4f9GA68",
+      title: {
+        en: "kz_lionharder — KZT PRO record run by smieszneznaczki (7:42.28)",
+        zh: "kz_lionharder — smieszneznaczki 的 KZT PRO 纪录速通（7:42.28）",
+      },
+    },
   },
 ];
 

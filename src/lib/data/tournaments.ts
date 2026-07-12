@@ -38,15 +38,6 @@ const ph = (
   icon,
 });
 
-const hv = (en: string, zh: string): YouTubeRef => ({
-  kind: "youtube",
-  videoId: "",
-  title: {
-    en: `${en} — Grand Final Highlights`,
-    zh: `${zh} — 总决赛集锦`,
-  },
-});
-
 const seed: Tournament[] = [
   {
     slug: "dreamhack-2013",
@@ -63,7 +54,14 @@ const seed: Tournament[] = [
       zh: "史上首届 CS:GO Major。在延雪平的瑞典内战决赛中,不被看好的 Fnatic 以 2-1 爆冷击败主场热门 NiP,捧起首座 Major 奖杯。",
     },
     media: ph("dreamhack-2013", { en: "DreamHack 2013", zh: "DreamHack 2013" }),
-    highlightVideo: hv("DreamHack Winter 2013", "DreamHack Winter 2013"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "_cAjCxeYbaI",
+      title: {
+        en: "DreamHack Winter 2013 — Grand Final Highlights",
+        zh: "DreamHack Winter 2013 — 总决赛集锦",
+      },
+    },
   },
   {
     slug: "esl-one-cologne-2014",
@@ -80,7 +78,14 @@ const seed: Tournament[] = [
       zh: "在连续两届 Major 决赛饮恨之后,NiP 终于在科隆 LANXESS 竞技场捧杯,瑞典内战中以 2-1 复仇 Fnatic。",
     },
     media: ph("esl-one-cologne-2014", { en: "Cologne 2014", zh: "科隆 2014" }),
-    highlightVideo: hv("ESL One Cologne 2014", "ESL One 科隆 2014"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "-5laY7bjono",
+      title: {
+        en: "ESL One Cologne 2014 — Grand Final (ESL Classics)",
+        zh: "ESL One 科隆 2014 — 总决赛（ESL 经典重播）",
+      },
+    },
   },
   {
     slug: "esl-one-cologne-2015",
@@ -97,7 +102,14 @@ const seed: Tournament[] = [
       zh: "Fnatic 以 2-0 横扫 Team EnVyUs,巅峰期的 olofmeister 领衔拿下队史第二座 Major,坐实了那个时代第一战队的名号。",
     },
     media: ph("esl-one-cologne-2015", { en: "Cologne 2015", zh: "科隆 2015" }),
-    highlightVideo: hv("ESL One Cologne 2015", "ESL One 科隆 2015"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "02I5vVxlJhU",
+      title: {
+        en: "ESL One Cologne 2015 — Grand Final, Map 1 (Dust II)",
+        zh: "ESL One 科隆 2015 — 总决赛 第一图（炙热沙城 II）",
+      },
+    },
   },
   {
     slug: "dreamhack-malmo-2016",
@@ -118,7 +130,14 @@ const seed: Tournament[] = [
       { en: "Malmö 2016", zh: "马尔默 2016" },
       "Medal",
     ),
-    highlightVideo: hv("DreamHack Masters Malmö 2016", "DreamHack 马尔默 2016"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "9KRVuTgyy44",
+      title: {
+        en: "DreamHack Masters Malmö 2016 — Grand Final, Map 1 (Dust II)",
+        zh: "DreamHack 马尔默 2016 — 总决赛 第一图（炙热沙城 II）",
+      },
+    },
   },
   {
     slug: "mlg-columbus-2016",
@@ -135,7 +154,14 @@ const seed: Tournament[] = [
       zh: "首个在北美举办、也是首个奖金达到 100 万美元的 Major。Luminosity 决赛 2-0 击败 Natus Vincere;coldzera 在 Mirage 的跳狙四杀成为 CS 历史上最著名的操作。",
     },
     media: ph("mlg-columbus-2016", { en: "MLG Columbus", zh: "MLG 哥伦布" }),
-    highlightVideo: hv("MLG Columbus 2016", "MLG 哥伦布 2016"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "7nWxZin959o",
+      title: {
+        en: "MLG Columbus 2016 — Grand Final",
+        zh: "MLG 哥伦布 2016 — 总决赛",
+      },
+    },
   },
   {
     slug: "esl-one-cologne-2016",
@@ -152,7 +178,14 @@ const seed: Tournament[] = [
       zh: "巴西班底完成卫冕:转投 SK Gaming 旗下后,他们在科隆决赛 2-0 击败 Team Liquid,成功卫冕 Major 冠军。",
     },
     media: ph("esl-one-cologne-2016", { en: "Cologne 2016", zh: "科隆 2016" }),
-    highlightVideo: hv("ESL One Cologne 2016", "ESL One 科隆 2016"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "AK5RY8W-AcM",
+      title: {
+        en: "ESL One Cologne 2016 — Grand Final, Map 1 (Train)",
+        zh: "ESL One 科隆 2016 — 总决赛 第一图（列车停放站）",
+      },
+    },
   },
   {
     slug: "eleague-atlanta-2017",
@@ -172,7 +205,14 @@ const seed: Tournament[] = [
       en: "ELEAGUE Atlanta",
       zh: "ELEAGUE 亚特兰大",
     }),
-    highlightVideo: hv("ELEAGUE Major: Atlanta 2017", "ELEAGUE 亚特兰大 2017"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "jlefQHEPiuk",
+      title: {
+        en: "ELEAGUE Major: Atlanta 2017 — Grand Final Highlights",
+        zh: "ELEAGUE 亚特兰大 2017 — 总决赛集锦",
+      },
+    },
   },
   {
     slug: "eleague-boston-2018",
@@ -192,7 +232,14 @@ const seed: Tournament[] = [
       en: "ELEAGUE Boston",
       zh: "ELEAGUE 波士顿",
     }),
-    highlightVideo: hv("ELEAGUE Major: Boston 2018", "ELEAGUE 波士顿 2018"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "_PAdiVL0abs",
+      title: {
+        en: "ELEAGUE Major: Boston 2018 — Cloud9's Historic Major Win",
+        zh: "ELEAGUE 波士顿 2018 — Cloud9 历史性夺冠",
+      },
+    },
   },
   {
     slug: "faceit-london-2018",
@@ -212,7 +259,14 @@ const seed: Tournament[] = [
       en: "FACEIT London",
       zh: "FACEIT 伦敦",
     }),
-    highlightVideo: hv("FACEIT Major: London 2018", "FACEIT 伦敦 2018"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "z7IDPdmYw0A",
+      title: {
+        en: "FACEIT Major: London 2018 — Grand Final, Map 1 (Nuke)",
+        zh: "FACEIT 伦敦 2018 — 总决赛 第一图（核子危机）",
+      },
+    },
   },
   {
     slug: "iem-katowice-2019",
@@ -232,7 +286,14 @@ const seed: Tournament[] = [
       en: "IEM Katowice 2019",
       zh: "IEM 卡托维兹 2019",
     }),
-    highlightVideo: hv("IEM Katowice 2019", "IEM 卡托维兹 2019"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "kgitmggEgrA",
+      title: {
+        en: "IEM Katowice 2019 — Grand Final, Map 1 (Train)",
+        zh: "IEM 卡托维兹 2019 — 总决赛 第一图（列车停放站）",
+      },
+    },
   },
   {
     slug: "starladder-berlin-2019",
@@ -252,7 +313,14 @@ const seed: Tournament[] = [
       en: "StarLadder Berlin",
       zh: "StarLadder 柏林",
     }),
-    highlightVideo: hv("StarLadder Berlin 2019", "StarLadder 柏林 2019"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "c2uQV59-tbI",
+      title: {
+        en: "StarLadder Berlin 2019 — Grand Final, Map 1 (Inferno)",
+        zh: "StarLadder 柏林 2019 — 总决赛 第一图（炼狱小镇）",
+      },
+    },
   },
   {
     slug: "iem-katowice-2020",
@@ -273,7 +341,14 @@ const seed: Tournament[] = [
       { en: "IEM Katowice 2020", zh: "IEM 卡托维兹 2020" },
       "Star",
     ),
-    highlightVideo: hv("IEM Katowice 2020", "IEM 卡托维兹 2020"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "NOuvxSHu74o",
+      title: {
+        en: "IEM Katowice 2020 — Grand Final, Map 1 (Nuke)",
+        zh: "IEM 卡托维兹 2020 — 总决赛 第一图（核子危机）",
+      },
+    },
   },
   {
     slug: "iem-cologne-2021",
@@ -294,7 +369,14 @@ const seed: Tournament[] = [
       { en: "IEM Cologne 2021", zh: "IEM 科隆 2021" },
       "Star",
     ),
-    highlightVideo: hv("IEM Cologne 2021", "IEM 科隆 2021"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "qbhh37rhltQ",
+      title: {
+        en: "IEM Cologne 2021 — Grand Final Highlights",
+        zh: "IEM 科隆 2021 — 总决赛集锦",
+      },
+    },
   },
   {
     slug: "pgl-stockholm-2021",
@@ -314,7 +396,14 @@ const seed: Tournament[] = [
       en: "PGL Stockholm",
       zh: "PGL 斯德哥尔摩",
     }),
-    highlightVideo: hv("PGL Major Stockholm 2021", "PGL 斯德哥尔摩 2021"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "LG2GZUSWfQU",
+      title: {
+        en: "PGL Major Stockholm 2021 — Grand Final Highlights (Map 2, Nuke)",
+        zh: "PGL 斯德哥尔摩 2021 — 总决赛集锦（第二图 核子危机）",
+      },
+    },
   },
   {
     slug: "pgl-antwerp-2022",
@@ -331,7 +420,14 @@ const seed: Tournament[] = [
       zh: "FaZe Clan 在安特卫普决赛 2-0 击败 Natus Vincere,成为首支夺得 Major 的多国混编战队,karrigan 终于圆梦捧杯。",
     },
     media: ph("pgl-antwerp-2022", { en: "PGL Antwerp", zh: "PGL 安特卫普" }),
-    highlightVideo: hv("PGL Major Antwerp 2022", "PGL 安特卫普 2022"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "MsfC8T5JR4I",
+      title: {
+        en: "PGL Major Antwerp 2022 — Grand Final Best Moments",
+        zh: "PGL 安特卫普 2022 — 总决赛集锦",
+      },
+    },
   },
   {
     slug: "iem-rio-2022",
@@ -348,7 +444,14 @@ const seed: Tournament[] = [
       zh: "首个在巴西举办的 Major。在里约狂欢节般的观众面前,Outsiders 决赛 2-0 横扫 Heroic,Jame 荣膺 MVP。",
     },
     media: ph("iem-rio-2022", { en: "IEM Rio", zh: "IEM 里约" }),
-    highlightVideo: hv("IEM Rio Major 2022", "IEM 里约 Major 2022"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "765wGvTk33U",
+      title: {
+        en: "IEM Rio Major 2022 — Grand Final Highlights",
+        zh: "IEM 里约 Major 2022 — 总决赛集锦",
+      },
+    },
   },
   {
     slug: "blast-paris-2023",
@@ -365,7 +468,14 @@ const seed: Tournament[] = [
       zh: "CS:GO 时代的最后一届 Major。Team Vitality 在巴黎决赛 2-0 击败 GamerLegion,主场英雄 ZywOo 荣膺 MVP,为 CS:GO 画上句号。",
     },
     media: ph("blast-paris-2023", { en: "BLAST Paris", zh: "BLAST 巴黎" }),
-    highlightVideo: hv("BLAST.tv Paris Major 2023", "BLAST 巴黎 Major 2023"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "y6Y0l1Y-PTo",
+      title: {
+        en: "BLAST.tv Paris Major 2023 — Grand Final",
+        zh: "BLAST 巴黎 Major 2023 — 总决赛",
+      },
+    },
   },
   {
     slug: "pgl-copenhagen-2024",
@@ -385,7 +495,14 @@ const seed: Tournament[] = [
       en: "PGL Copenhagen",
       zh: "PGL 哥本哈根",
     }),
-    highlightVideo: hv("PGL Copenhagen 2024", "PGL 哥本哈根 2024"),
+    highlightVideo: {
+      kind: "youtube",
+      videoId: "09N-bQbLrx8",
+      title: {
+        en: "PGL Copenhagen 2024 — Grand Final, Map 1 (Ancient)",
+        zh: "PGL 哥本哈根 2024 — 总决赛 第一图（远古遗迹）",
+      },
+    },
   },
 ];
 

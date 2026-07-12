@@ -31,12 +31,6 @@ const ph = (slug: string, label: LocalizedText): MediaPlaceholder => ({
   icon: "Map",
 });
 
-const ov = (en: string, zh: string): YouTubeRef => ({
-  kind: "youtube",
-  videoId: "",
-  title: { en: `${en} — map overview`, zh: `${zh} — 地图概览` },
-});
-
 const seed: CSMap[] = [
   {
     slug: "de_dust2",
@@ -87,7 +81,11 @@ const seed: CSMap[] = [
       zh: "反恐精英史上最具标志性的地图——烈日下的三线经典。自 2001 年起，A 大对枪与 B 洞冲锋从未停歇；极简的结构使它成为对枪法与时机最纯粹的考验。",
     },
     media: ph("de_dust2", { en: "Dust II", zh: "炙热沙城 II" }),
-    overviewVideo: ov("Dust II", "炙热沙城 II"),
+    overviewVideo: {
+      kind: "youtube",
+      videoId: "TY0r1ShcDt0",
+      title: { en: "Dust II — CS2 full map tour", zh: "炙热沙城 II — CS2 地图概览" },
+    },
   },
   {
     slug: "de_mirage",
@@ -138,7 +136,11 @@ const seed: CSMap[] = [
       zh: "以摩洛哥小镇为背景的竞技常青树，核心在于中路控制与快速转点。封窗口与连接口的烟雾弹几乎是每位玩家最先学会的道具。",
     },
     media: ph("de_mirage", { en: "Mirage", zh: "荒漠迷城" }),
-    overviewVideo: ov("Mirage", "荒漠迷城"),
+    overviewVideo: {
+      kind: "youtube",
+      videoId: "n8T3yFZMZdY",
+      title: { en: "Mirage — CS2 full map tour", zh: "荒漠迷城 — CS2 地图概览" },
+    },
   },
   {
     slug: "de_inferno",
@@ -189,7 +191,14 @@ const seed: CSMap[] = [
       zh: "狭窄的意大利小镇，道具运用至上。香蕉道与公寓的控制权决定了大多数回合，而狭小包点上的残局回防更是名场面频出。",
     },
     media: ph("de_inferno", { en: "Inferno", zh: "炼狱小镇" }),
-    overviewVideo: ov("Inferno", "炼狱小镇"),
+    overviewVideo: {
+      kind: "youtube",
+      videoId: "1JO3e-lNno4",
+      title: {
+        en: "Inferno — CS2 cinematic map tour",
+        zh: "炼狱小镇 — CS2 地图概览",
+      },
+    },
   },
   {
     slug: "de_nuke",
@@ -240,7 +249,11 @@ const seed: CSMap[] = [
       zh: "在核电站上下两层展开攻防的地图。脚步声穿透楼层，转点速度全图池最快，偏向 CT 的防守布置让 T 方每一回合都像在解谜。",
     },
     media: ph("de_nuke", { en: "Nuke", zh: "核子危机" }),
-    overviewVideo: ov("Nuke", "核子危机"),
+    overviewVideo: {
+      kind: "youtube",
+      videoId: "wzbfPDgN5lo",
+      title: { en: "Nuke — CS2 full map tour", zh: "核子危机 — CS2 地图概览" },
+    },
   },
   {
     slug: "de_overpass",
@@ -291,7 +304,14 @@ const seed: CSMap[] = [
       zh: "柏林的公园与运河横跨在高速立交之上。上层是远距离对枪，下层是下水道伏击——这张图偏爱道具功底扎实、节奏沉稳的队伍。",
     },
     media: ph("de_overpass", { en: "Overpass", zh: "死亡游乐园" }),
-    overviewVideo: ov("Overpass", "死亡游乐园"),
+    overviewVideo: {
+      kind: "youtube",
+      videoId: "P4N1saVuiQ4",
+      title: {
+        en: "Overpass — CS2 full map tour",
+        zh: "死亡游乐园 — CS2 地图概览",
+      },
+    },
   },
   {
     slug: "de_ancient",
@@ -342,7 +362,11 @@ const seed: CSMap[] = [
       zh: "深藏丛林中的玛雅遗迹，2021 年进入竞技图池以取代列车停放站。狭窄的隘口与漫长的转点路线让地图控制与道具纪律尤为关键。",
     },
     media: ph("de_ancient", { en: "Ancient", zh: "远古遗迹" }),
-    overviewVideo: ov("Ancient", "远古遗迹"),
+    overviewVideo: {
+      kind: "youtube",
+      videoId: "LAtJJP93Ogo",
+      title: { en: "Ancient — CS2 full map tour", zh: "远古遗迹 — CS2 地图概览" },
+    },
   },
   {
     slug: "de_vertigo",
@@ -393,7 +417,11 @@ const seed: CSMap[] = [
       zh: "一座悬于城市上空的在建摩天大楼。垂直落差、狭窄坡道与闪电般的 A 点强攻，使它成为现役图池史上争议最大的地图之一。",
     },
     media: ph("de_vertigo", { en: "Vertigo", zh: "殒命大厦" }),
-    overviewVideo: ov("Vertigo", "殒命大厦"),
+    overviewVideo: {
+      kind: "youtube",
+      videoId: "-Xs9XKaFaUY",
+      title: { en: "Vertigo — CS2 full map tour", zh: "殒命大厦 — CS2 地图概览" },
+    },
   },
   {
     slug: "de_anubis",
@@ -444,7 +472,11 @@ const seed: CSMap[] = [
       zh: "以尼罗河畔为背景的社区地图，2022 年跻身现役图池。水道、紧凑的中路与灵活的分推打法带来快速流畅的战术节奏。",
     },
     media: ph("de_anubis", { en: "Anubis", zh: "阿努比斯" }),
-    overviewVideo: ov("Anubis", "阿努比斯"),
+    overviewVideo: {
+      kind: "youtube",
+      videoId: "7bpo25-9WiM",
+      title: { en: "Anubis — CS2 full map tour", zh: "阿努比斯 — CS2 地图概览" },
+    },
   },
   {
     slug: "cs_office",
@@ -494,7 +526,11 @@ const seed: CSMap[] = [
       zh: "人质解救模式的代表作——自反恐精英最早期便被恐怖分子占据的雪中办公楼。CT 需推进长廊与车库，才能接近并救出人质。",
     },
     media: ph("cs_office", { en: "Office", zh: "办公大楼" }),
-    overviewVideo: ov("Office", "办公大楼"),
+    overviewVideo: {
+      kind: "youtube",
+      videoId: "ptDxL5GGOZg",
+      title: { en: "Office — CS2 full map tour", zh: "办公大楼 — CS2 地图概览" },
+    },
   },
 ];
 
